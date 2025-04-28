@@ -1,0 +1,25 @@
+# Netlify configuration file
+
+# Handle SPA routing - redirect all paths to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Build settings
+[build]
+  # Directory to publish (relative to root of your repo)
+  publish = "dist"
+  # Default build command
+  command = "npm run build"
+
+# Set environment variables
+[build.environment]
+  NODE_VERSION = "18"
+
+# Cache dependencies to speed up builds
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+  [plugins.inputs]
+    cache_folder = "./node_modules/.cache"

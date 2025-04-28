@@ -25,7 +25,16 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://eatoes-food-ordering.netlify.app', // Your Netlify domain
+    // Netlify also creates deploy previews, so allow all Netlify domains
+    /\.netlify\.app$/
+  ],
+  credentials: true
+}));
 
 // Mount routes
 app.use('/api/menu', menuRoutes);
