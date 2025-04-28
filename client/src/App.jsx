@@ -79,6 +79,11 @@ function App() {
                   <OrderHistoryPage />
                 </ProtectedRoute>
               } />
+              <Route path="/order/:orderId" element={
+                <ProtectedRoute>
+                  <OrderDetailsPage />
+                </ProtectedRoute>
+              } />
               <Route path="/order-confirmation/:orderId" element={
                 <ProtectedRoute>
                   <OrderConfirmation />
